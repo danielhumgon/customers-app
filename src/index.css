@@ -28,6 +28,14 @@ body {
   margin: 5px;
 }
 
+.customers-list-item .field {
+  width: 160px;
+  margin: 1px;
+  padding: 4px;
+  background: white;
+  display: inline-block;
+}
+
 
 
 
