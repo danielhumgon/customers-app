@@ -5,6 +5,8 @@ import HomeContainer from './containers/HomeContainer';
 
 class App extends Component {
   
+  renderHome = () => <h1>Home</h1>
+
   renderCustomerContainer = () => <h1>Customer Container</h1>;
 
   renderCustomerListContainer = () => <h1>Customers List Container</h1>;
