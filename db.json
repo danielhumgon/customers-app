@@ -1,0 +1,37 @@
+{
+  "customers": [
+    {
+        "dni": "12345777",
+        "name": "Kate Austen",
+        "age": 30
+    },
+    {
+        "dni": "15345777",
+        "name": "Hugo Reyes",
+        "age": 32
+    },
+    {
+        "dni": "17345777",
+        "name": "John Locke",
+        "age": 60
+    }
+
+],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
