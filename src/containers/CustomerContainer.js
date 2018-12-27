@@ -8,7 +8,7 @@ class CustomerContainer extends Component {
         return (
             <div>
                 <AppFrame 
-                    header={`Customer`}
+                    header={`Customer  ${this.props.dni}`}
                     body={<p>Customer Data</p>}/>
             </div>
         );
@@ -16,7 +16,7 @@ class CustomerContainer extends Component {
 }
 
 CustomerContainer.propTypes = {
-
+    dni: PropTypes.string.isRequired,
 };
 
 export default connect(null, null)(CustomerContainer);
