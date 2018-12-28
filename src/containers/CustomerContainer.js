@@ -4,12 +4,17 @@ import AppFrame from '../components/AppFrame';
 import PropTypes from 'prop-types';
 import { getCustomerByDni } from '../selectors/customers';
 import { Route } from 'react-router-dom';
+import CustomerEdit from './../components/CustomerEdit';
+import CustomerData from './../components/CustomerData';
 
 class CustomerContainer extends Component {
 
     renderBody = () => (
         <Route path="/customers/:dni/edit" children={
-            ({ match }) => ( match ? <p>Edit</p> : <p>No Edit</p> )
+            ({ match }) => {
+                const CustomerControl = match ? CustomerEdit : CustomerData;
+                return <CustomerControl {...this.props.customer} />
+            }
         }/>
     )
 
