@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
+import CustomersActions from './CustomersActions';
 
 /*
 const isRequired = value => (
@@ -37,11 +38,11 @@ const MyField = ({ input, meta, type, label, name }) => (
     </div>
 )
 
-const CustomerEdit = ({ name, dni, age }) => {
+const CustomerEdit = ({ name, dni, age, handleSubmit, submitting }) => {
     return (
         <div>
             <h2>Customer Edit</h2>
-            <form action="">
+            <form onSubmit={handleSubmit}>
 
                     <Field 
                         name="name" 
@@ -56,7 +57,11 @@ const CustomerEdit = ({ name, dni, age }) => {
                         component={MyField}
                         type="number"
                         validate={isNumber}
-                        label="Age"></Field>   
+                        label="Age"></Field>
+
+                <CustomersActions>
+                    <button type="submit" disabled={submitting}>Submit</button>
+                </CustomersActions>   
             </form>
 
         </div>
