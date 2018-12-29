@@ -3,14 +3,29 @@ import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
 
-
+/*
 const isRequired = value => (
     !value && "This Field is Required"
-);
+);*/
 
 const isNumber = value => (
     isNaN(Number(value)) && "The Value Must Be Numeric"
 );
+
+const validate = values => {
+    const error = {};
+
+    if (!values.name) {
+        error.name = "Name Field is Required";
+
+    }
+
+    if (!values.dni) {
+        error.dni = "ID Field is Required"
+    }
+
+    return error;
+};
 
 const MyField = ({ input, meta, type, label, name }) => (
     <div>
@@ -31,18 +46,16 @@ const CustomerEdit = ({ name, dni, age }) => {
                     <Field 
                         name="name" 
                         component={MyField}
-                        validate={isRequired}
                         label="Name"></Field>
                     <Field 
                         name="dni" 
                         component={MyField} 
-                        validate={[isRequired, isNumber]}
                         label="ID"></Field>
                     <Field 
                         name="age" 
                         component={MyField}
                         type="number"
-                        validate={[isRequired, isNumber]}
+                        validate={isNumber}
                         label="Age"></Field>   
             </form>
 
@@ -56,6 +69,10 @@ CustomerEdit.propTypes = {
     age: PropTypes.number,
 };
 
-const CustomerEditForm = reduxForm({ form: 'CustomerEdit'})(CustomerEdit);
+const CustomerEditForm = reduxForm(
+    { 
+        form: 'CustomerEdit',
+        validate
+    })(CustomerEdit);
 
 export default setPropsAsInitial(CustomerEditForm);
