@@ -1,22 +1,24 @@
 {
   "customers": [
     {
-        "dni": "12345777",
-        "name": "Kate Austen",
-        "age": 30
+      "id": "12345777",
+      "dni": "12345777",
+      "name": "Kate Austen",
+      "age": 30
     },
     {
-        "dni": "4815162342",
-        "name": "Hugo Reyes",
-        "age": 32
+      "id": "4815162342",
+      "dni": "4815162342",
+      "name": "Hugo Reyes",
+      "age": 32
     },
     {
-        "dni": "17345777",
-        "name": "John Locke",
-        "age": 58
+      "id": "17345777",
+      "dni": "17345777",
+      "name": "John Locke",
+      "age": 58
     }
-
-],
+  ],
   "posts": [
     {
       "id": 1,
