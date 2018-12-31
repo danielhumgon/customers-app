@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
 import CustomersActions from './CustomersActions';
+import { Prompt } from 'react-router-dom';
 
 /*
 const isRequired = value => (
@@ -43,7 +44,8 @@ const toNumber = value => value && Number(value);
 const onlyGrow = (value, previousValue, values) => 
         value && previousValue && (value > previousValue ? value : previousValue);
 
-const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
+const CustomerEdit = ({ 
+    name, dni, age, handleSubmit, submitting, onBack, pristine, submitSucceeded }) => {
     return (
         <div>
             <h2>Customer Edit</h2>
@@ -67,9 +69,12 @@ const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
                         normalize={onlyGrow}></Field>
 
                 <CustomersActions>
-                    <button type="submit" disabled={submitting}>Submit</button>
-                    <button onClick={onBack}>Cancel</button>
-                </CustomersActions>   
+                    <button type="submit" disabled={pristine || submitting}>Submit</button>
+                    <button type= "button" disabled={submitting} onClick={onBack}>Cancel</button>
+                </CustomersActions>
+                <Prompt
+                    when={!pristine && !submitSucceeded}
+                    message="Changes won't be saved"></Prompt>   
             </form>
 
         </div>
