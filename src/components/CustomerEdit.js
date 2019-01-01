@@ -42,7 +42,7 @@ const MyField = ({ input, meta, type, label, name }) => (
 const toNumber = value => value && Number(value);
 //Validation
 const onlyGrow = (value, previousValue, values) => 
-        value && previousValue && (value > previousValue ? value : previousValue);
+        value && (!previousValue ? value : (value > previousValue ? value : previousValue));
 
 const CustomerEdit = ({ 
     name, dni, age, handleSubmit, submitting, onBack, pristine, submitSucceeded }) => {
